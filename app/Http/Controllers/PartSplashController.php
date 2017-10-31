@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+
+use App\Models\PartnerSplash as PartSplash;
 
 class PartSplashController extends Controller
 {
@@ -80,5 +83,12 @@ class PartSplashController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSplashData()
+    {
+        $splash = PartSplash::all();
+
+        return Datatables::of($splash)->make(true);
     }
 }
