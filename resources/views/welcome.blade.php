@@ -137,7 +137,7 @@
 
         <div class="row">
             <div class="col-lg-3">
-                <div class="card-box">
+                <div class="card-box waves-effect waves-light">
                     <div class="bar-widget">
                         <div class="table-box">
                             <div class="table-detail">

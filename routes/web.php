@@ -19,6 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('partner', 'PartnerController', ['names' => 'admin.partner']);
+    Route::resource('splash', 'PartSplashController', ['names' => 'admin.splash']);
+});
+
 Route::group(['prefix' => 'api/table'], function() {
-   Route::get('splash', 'PartSplashController@getSplashData')->name('api.splash.data');
+    Route::get('partner', 'PartnerController@getPartnerData')->name('api.partner.data');
+    Route::get('splash', 'PartSplashController@getSplashData')->name('api.splash.data');
 });

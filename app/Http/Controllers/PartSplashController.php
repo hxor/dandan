@@ -16,7 +16,7 @@ class PartSplashController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.admin.splash.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class PartSplashController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.splash.create');
     }
 
     /**
@@ -88,7 +88,15 @@ class PartSplashController extends Controller
     public function getSplashData()
     {
         $splash = PartSplash::all();
-
-        return Datatables::of($splash)->make(true);
+        return Datatables::of($splash)
+            ->addColumn('action', function($splash){
+                return view('layouts.partials._action', [
+                    'model' => $splash->id,
+                    'form_url' => route('admin.splash.destroy', $splash->id),
+                    'edit_url' => route('admin.splash.edit', $splash->id),
+                    'show_url' => route('admin.splash.show', $splash->id)
+                ]);
+            })
+            ->make(true);
     }
 }

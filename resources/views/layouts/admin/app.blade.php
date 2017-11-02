@@ -41,6 +41,8 @@
     <link href="{{ url('/') }}/assets/css/style.css" rel="stylesheet" type="text/css" />
     <script src="{{ url('/') }}/assets/js/modernizr.min.js"></script>
 
+    @yield('styles')
+
 </head>
 
 
@@ -54,7 +56,7 @@
 
             <!-- Logo container-->
             <div class="logo">
-                <a href="{{ url('/') }}" class="logo">
+                <a href="{{ url('/home') }}" class="logo">
                     <span>Ub<i class="md md-album"></i>ld</span>
                 </a>
             </div>
@@ -199,6 +201,31 @@
 <script src="{{ url('/') }}/assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <script src="{{ url('/') }}/assets/pages/jquery.sweet-alert2.init.js"></script>
 
+
+@yield('scripts')
+
+<script src="{{ asset('js/app.js') }}"></script>
+
+@if (notify()->ready())
+    <script>
+        $(document).ready(function(){
+            swal({
+                title: "{!! notify()->message() !!}",
+                text: "{!! notify()->option('text') !!}",
+                type: "{{ notify()->type() }}",
+                timer: "{!! notify()->option('timer') !!}"
+            }).then(
+                function () {},
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                        console.log('I was closed by the timer')
+                    }
+                }
+            )
+        });
+    </script>
+@endif
 
 </body>
 </html>
