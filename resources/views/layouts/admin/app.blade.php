@@ -21,6 +21,9 @@
     <!-- DatePicker -->
     <link href="{{ url('/') }}/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
+    {{-- Colorpicker --}}
+    <link href="{{ url('/') }}/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
     <!-- Sweet Alert -->
     <link href="{{ url('/') }}/assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
 
@@ -193,6 +196,23 @@
         jQuery('#date-range').datepicker({
             toggleActive: true
         });
+
+    });
+</script>
+
+{{-- Colorpicker --}}
+<script src="{{ url('/') }}/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+
+        //colorpicker start
+
+        $('.colorpicker-default').colorpicker({
+            format: 'hex'
+        });
+        $('.colorpicker-rgba').colorpicker();
 
     });
 </script>

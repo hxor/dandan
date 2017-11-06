@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-use App\Models\Partner;
+use App\Models\Promo;
 
-class PartnerController extends Controller
+class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.partner.index');
+        return view('pages.admin.promo.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.partner.create');
+        return view('pages.admin.promo.create');
     }
 
     /**
@@ -38,20 +38,20 @@ class PartnerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-           'title' => 'required',
-           'link' => 'required',
-           'is_home' => 'required',
-           'image' => 'required'
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'required',
+            'is_banner' => 'required',
         ]);
 
-        Partner::create($request->all());
+        Promo::create($request->all());
 
         notify()->flash('Done!', 'success', [
             'timer' => 1500,
-            'text' => 'Partner successfully added',
+            'text' => 'Promo successfully added',
         ]);
 
-        return redirect()->route('admin.partner.index');
+        return redirect()->route('admin.promo.index');
     }
 
     /**
@@ -62,8 +62,8 @@ class PartnerController extends Controller
      */
     public function show($id)
     {
-        $partner = Partner::findOrFail($id);
-        return view('pages.admin.partner.show', compact('partner'));
+        $promo = Promo::findOrfail($id);
+        return view('pages.admin.promo.show', compact('promo'));
     }
 
     /**
@@ -74,8 +74,8 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        $partner = Partner::findOrFail($id);
-        return view('pages.admin.partner.edit', compact('partner'));
+        $promo = Promo::findOrFail($id);
+        return view('pages.admin.promo.edit', compact('promo'));
     }
 
     /**
@@ -89,20 +89,20 @@ class PartnerController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'link' => 'required',
-            'is_home' => 'required',
-            'image' => 'required'
+            'desc' => 'required',
+            'image' => 'required',
+            'is_banner' => 'required',
         ]);
 
-        $partner = Partner::findOrFail($id);
-        $partner->update($request->all());
+        $promo = Promo::findOrFail($id);
+        $promo->update($request->all());
 
         notify()->flash('Done!', 'success', [
             'timer' => 1500,
-            'text' => 'Partner successfully edited',
+            'text' => 'Promo successfully edited',
         ]);
 
-        return redirect()->route('admin.partner.index');
+        return redirect()->route('admin.promo.index');
     }
 
     /**
@@ -113,32 +113,32 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
-        if(!Partner::destroy($id)) return redirect()->back();
+        if(!Promo::destroy($id)) return redirect()->back();
 
         notify()->flash('Done!', 'success', [
             'timer' => 1500,
-            'text' => 'Partner successfully deleted',
+            'text' => 'Promo successfully deleted',
         ]);
 
-        return redirect()->route('admin.partner.index');
+        return redirect()->route('admin.promo.index');
     }
 
-    public function getPartnerData()
+    public function getPromoData()
     {
-        $partner = Partner::all();
-        return Datatables::of($partner)
-            ->addColumn('show_home', function($partner) {
-                return $partner->is_home == 1 ? 'Yes' : 'No';
+        $promo = Promo::all();
+        return Datatables::of($promo)
+            ->addColumn('show_banner', function($promo) {
+                return $promo->is_banner == 1 ? 'Yes' : 'No';
             })
-            ->addColumn('show_image', function($partner) {
-                return '<img class="rounded-square" width="50" height="50" src="'. url($partner->image) .'" alt="">';
+            ->addColumn('show_image', function($promo) {
+                return '<img class="rounded-square" width="50" height="50" src="'. url($promo->image) .'" alt="">';
             })
-            ->addColumn('action', function($partner){
+            ->addColumn('action', function($promo){
                 return view('layouts.admin.partials._action', [
-                    'model' => $partner->id,
-                    'form_url' => route('admin.partner.destroy', $partner->id),
-                    'edit_url' => route('admin.partner.edit', $partner->id),
-                    'show_url' => route('admin.partner.show', $partner->id)
+                    'model' => $promo->id,
+                    'form_url' => route('admin.promo.destroy', $promo->id),
+                    'edit_url' => route('admin.promo.edit', $promo->id),
+                    'show_url' => route('admin.promo.show', $promo->id)
                 ]);
             })
             ->rawColumns(['show_image', 'action'])

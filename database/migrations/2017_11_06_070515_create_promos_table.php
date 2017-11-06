@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePartnerSplashesTable extends Migration
+class CreatePromosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePartnerSplashesTable extends Migration
      */
     public function up()
     {
-        Schema::create('partner_splashes', function (Blueprint $table) {
+        Schema::create('promos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->text('desc');
             $table->text('image');
-            $table->string('color');
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_banner')->default(true);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePartnerSplashesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partner_splashes');
+        Schema::dropIfExists('promos');
     }
 }

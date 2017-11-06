@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="">
+            <a href="{{ route('admin.promo.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">

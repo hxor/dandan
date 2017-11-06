@@ -30,16 +30,17 @@
             <a href="{{ route('admin.partner.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box waves-effect waves-light">
+                        <div class="table-box">
                             <div class="table-detail">
-                                <div class="iconbox bg-purple">
+                                <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
+
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Partner Splash, Promo, Banner</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">List partnership</h5>
                             </div>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.promo.index') }}">
+            <a href="{{ route('admin.splash.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -58,10 +59,9 @@
                                 </div>
                             </div>
 
-
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Promo</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Data Promo</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Partner Splash</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Splashscreen partnership</h5>
                             </div>
                         </div>
                     </div>
@@ -77,19 +77,20 @@
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
                     <b>Default Example</b>
-                    <a href="{{ route('admin.splash.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Splash</a>
+                    <a href="{{ route('admin.promo.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Promo</a>
                 </h4>
 
-                <table id="splash-table" class="table table-striped table-bordered">
+                <table id="partner-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th width="30">No</th>
+                        <th>Title</th>
                         <th>Image</th>
-                        <th>BG Color</th>
-                        <th>Is Show?</th>
+                        <th>Is Banner</th>
                         <th></th>
                     </tr>
                     </thead>
+
 
                     <tbody>
                     </tbody>
@@ -102,15 +103,15 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var table = $('#splash-table').DataTable({
+        var table = $('#partner-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.splash.data') }}",
+            ajax: "{{ route('api.promo.data') }}",
             columns: [
                 {data: 'id', name: 'id'},
+                {data: 'title', name: 'title'},
                 {data: 'show_image', name: 'show_image'},
-                {data: 'color', name: 'color'},
-                {data: 'is_show', name: 'is_show'},
+                {data: 'show_banner', name: 'show_banner'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

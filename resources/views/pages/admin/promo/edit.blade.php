@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="card-box">
-                {!! Form::open(['method' => 'POST', 'route' => 'admin.splash.store', 'class' => 'form-horizontal']) !!}
-                @include('pages.admin.splash._form')
+                {!! Form::model($promo, ['route' => ['admin.promo.update', $promo->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
+                @include('pages.admin.promo._form')
                 {!! Form::close() !!}
             </div>
         </div>
