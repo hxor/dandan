@@ -28,6 +28,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('customer', 'CustomerController', ['names' => 'admin.customer']);
     Route::get('customer/{id}/editpass', 'CustomerController@editPass')->name('admin.customer.editpass');
     Route::put('customer/{id}/editpass', 'CustomerController@updatePass')->name('admin.customer.updatepass');
+
+
+    //Job
+    Route::resource('job', 'JobController', ['names' => 'admin.job']);
+    Route::resource('architect', 'ArchitectController', ['names' => 'admin.architect']);
+    Route::get('architect/{id}/image/', 'ArchitectController@getUploadImage')->name('admin.architect.image');
+    Route::post('architect/{id}/image', 'ArchitectController@postUploadImage')->name('admin.architect.upload');
+    Route::delete('architect/{id}/image', 'ArchitectController@deleteUploadImage')->name('admin.architect.delimage');
 });
 
 Route::group(['prefix' => 'api/table'], function() {
@@ -36,4 +44,8 @@ Route::group(['prefix' => 'api/table'], function() {
     Route::get('promo', 'PromoController@getPromoData')->name('api.promo.data');
 
     Route::get('customer', 'CustomerController@getCustomerData')->name('api.customer.data');
+
+
+    Route::get('job', 'JobController@getJobData')->name('api.job.data');
+    Route::get('architect', 'ArchitectController@getArchitectData')->name('api.architect.data');
 });
