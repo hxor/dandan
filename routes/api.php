@@ -18,13 +18,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
-    Route::post('auth/register', 'Api\AuthController@register');
-    Route::post('auth/login', 'Api\AuthController@login');
-    Route::post('auth/customer/register', 'Api\AuthController@registerCustomer');
-    Route::post('auth/customer/login', 'Api\AuthController@loginCustomer');
+    Route::group(['prefix' => 'auth'], function(){
+        Route::post('/register', 'Api\AuthController@register');
+        Route::post('/login', 'Api\AuthController@login');
+        Route::post('/customer/register', 'Api\AuthController@registerCustomer');
+        Route::post('/customer/login', 'Api\AuthController@loginCustomer');
+    });
+
     Route::group(['middleware' => 'jwt.auth'], function () {
-        Route::get('/jwt/jwt', function() {
-            return 'Test JWT Page';
+
+        Route::group(['prefix' => 'partner', 'namespace' => 'Api'], function(){
+            Route::get('splash', 'PartnerController@getSplash')->name('api.partner.splash');
+            Route::get('banner', 'PartnerController@getBanner')->name('api.partner.banner');
+            Route::get('/', 'PartnerController@getPartner')->name('api.partner.sponsor');
         });
+
+
+        Route::group(['prefix' => 'user', 'namespace' => 'Api'], function() {
+            Route::get('/profile', 'UserController@getProfile')->name('api.user.profile');
+            Route::post('/profile', 'UserController@updateProfile')->name('api.user.profile.update');
+        });
+
     });
 });
