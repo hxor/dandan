@@ -99,7 +99,7 @@ class CustomerController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required',
             'phone' => 'required|unique:customers',
-            'email' => 'required|string|email|max:255|unique:customers',
+            'email' => 'required|string|email|max:255|unique:customers,email,' . $id,
         ]);
 
         $customer = Customer::findOrFail($id);

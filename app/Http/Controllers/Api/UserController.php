@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator;
 use Config;
 use JWTAuth;
 use JWTAuthException;
@@ -15,9 +16,21 @@ class UserController extends Controller
     public function getProfile(Request $request)
     {
         try {
-            Config::set('jwt.user' , "App\Models\Customer");
-            Config::set('auth.providers.users.model', \App\Models\Customer::class);
-            $user = JWTAuth::toUser($request->token);
+
+            $validator = Validator::make($request->all(), [
+                'user_id' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => '422',
+                    'data' => null,
+                    'message' => $validator->getMessageBag()->toArray()
+                ]);
+            }
+
+            $user_id = $request->user_id;
+            $user = Customer::findOrFail($user_id);
 
             return response()->json([
                 'status' => 200,
@@ -27,7 +40,7 @@ class UserController extends Controller
                     'api_profile_update' => [
                         'method' => 'POST',
                         'href' => route('api.user.profile.update'),
-                        'params' => 'token, name, address, phone, email',
+                        'params' => 'token, user_id, name, address, phone, email',
                     ],
                 ],
             ]);
@@ -44,14 +57,35 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
         try {
-            Config::set('jwt.user' , "App\Models\Customer");
-            Config::set('auth.providers.users.model', \App\Models\Customer::class);
-            $user = JWTAuth::toUser($request->token);
+            $validator = Validator::make($request->all(), [
+                'user_id' => 'required',
+                'name' => 'required|string|max:255',
+                'address' => 'required',
+                'phone' => 'required',
+                'email' => 'required|string|email|max:255|unique:users,email,' . $request->user_id,
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => '422',
+                    'data' => null,
+                    'message' => $validator->getMessageBag()->toArray()
+                ]);
+            }
+
+            $user = Customer::findOrFail($request->user_id);
+            $user->update([
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'email' => $request->email
+            ]);
 
             return response()->json([
                 'status' => 200,
                 'message'=>'Update Customer Success',
                 'data' => [
+                    'user' => $user,
                     'api_profile' => [
                         'method' => 'GET',
                         'href' => route('api.user.profile'),
