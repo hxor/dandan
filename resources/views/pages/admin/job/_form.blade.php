@@ -4,6 +4,12 @@
     <small class="text-danger">{{ $errors->first('job') }}</small>
 </div>
 
+<div class="form-group{{ $errors->has('code') ? ' has-error' : '' }}">
+    {!! Form::label('code', 'Job Code') !!}
+    {!! Form::text('code', null, ['class' => 'form-control', 'id' => 'code', 'required' => 'required']) !!}
+    <small class="text-danger">{{ $errors->first('job') }}</small>
+</div>
+
 <div class="form-group text-right m-b-0">
     <a href="{{ empty($bread['0']) ? '#' : $bread['0']  }}" class="btn btn-white waves-effect waves-light m-l-5">
         Cancel

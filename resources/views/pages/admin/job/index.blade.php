@@ -84,6 +84,7 @@
                     <thead>
                     <tr>
                         <th width="30">No</th>
+                        <th>Code</th>
                         <th>Job</th>
                         <th></th>
                     </tr>
@@ -107,6 +108,7 @@
             ajax: "{{ route('api.job.data') }}",
             columns: [
                 {data: 'id', name: 'id'},
+                {data: 'code', name: 'code'},
                 {data: 'job', name: 'job'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

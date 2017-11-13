@@ -39,6 +39,7 @@ class JobController extends Controller
     {
         $this->validate($request,[
             'job' => 'required',
+            'code' => 'required|unique:jobs',
         ]);
 
         Job::create($request->all());
@@ -85,6 +86,7 @@ class JobController extends Controller
     {
         $this->validate($request,[
             'job' => 'required',
+            'code' => 'required|unique:jobs,code,'. $id,
         ]);
 
         $job = Job::findOrFail($id);
