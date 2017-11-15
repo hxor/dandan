@@ -10,6 +10,40 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
+    public function getOrderHistory(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'customer_id' => 'required',
+            'job_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => '422',
+                'message' => $validator->getMessageBag()->toArray(),
+                'data' => null
+            ]);
+        }
+
+        try {
+            $order = Order::where('customer_id', $request->customer_id)
+                ->where('job_id', $request->job_id)
+                ->paginate(3);
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Get History Data success',
+                'data' => $order,
+            ]);
+
+        } catch (JWTAuthException $e) {
+            return response()->json([
+                'status' => 500,
+                'data' => null,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
     public function postOrder(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -44,8 +78,8 @@ class OrderController extends Controller
         } catch (JWTAuthException $e) {
             return response()->json([
                 'status' => 500,
-                'message' => 'failed_to_create_order',
                 'data' => null,
+                'message' => $e->getMessage()
             ]);
         }
 

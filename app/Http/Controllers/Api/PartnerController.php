@@ -51,7 +51,11 @@ class PartnerController extends Controller
                     'method' => 'GET',
                     'href' => route('api.partner.banner')
                 ],
-                'api_history' => '',
+                'api_order_history' => [
+                    'method' => 'GET',
+                    'href' => route('api.order.history',[1,1]),
+                    'param' => 'job_id,customer_id'
+                ],
                 'api_partner' => [
                     'method' => 'GET',
                     'href' => route('api.partner.sponsor')

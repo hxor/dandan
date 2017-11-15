@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('promo', 'PromoController', ['names' => 'admin.promo']);
 
     //Customer, and Order
+    Route::resource('order', 'OrderController', ['names' => 'admin.order']);
     Route::resource('customer', 'CustomerController', ['names' => 'admin.customer']);
     Route::get('customer/{id}/editpass', 'CustomerController@editPass')->name('admin.customer.editpass');
     Route::put('customer/{id}/editpass', 'CustomerController@updatePass')->name('admin.customer.updatepass');
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'api/table'], function() {
     Route::get('promo', 'PromoController@getPromoData')->name('api.promo.data');
 
     Route::get('customer', 'CustomerController@getCustomerData')->name('api.customer.data');
+
+    Route::get('order', 'OrderController@getOrderData')->name('api.order.data');
 
 
     Route::get('job', 'JobController@getJobData')->name('api.job.data');

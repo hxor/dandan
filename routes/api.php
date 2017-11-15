@@ -46,6 +46,7 @@ Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
 
         Route::group(['prefix' => 'order', 'namespace' => 'Api'], function() {
             Route::post('post', 'OrderController@postOrder')->name('api.order.post');
+            Route::get('history', 'OrderController@getOrderHistory')->name('api.order.history');
         });
 
         Route::group(['prefix' => 'setting', 'namespace' => 'Api'], function() {
