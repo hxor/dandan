@@ -61,7 +61,7 @@
 
 							<div class="table-detail">
 								<h4 class="m-t-0 m-b-5"><b>Data Master</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Jobs, Architects, Gallery</h5>
+								<h5 class="text-muted m-b-0 m-t-0">Jobs, Architects, Costs</h5>
 							</div>
 						</div>
 					</div>
@@ -70,22 +70,24 @@
 		</div>
 
 		<div class="col-lg-3">
-			<div class="card-box">
-				<div class="bar-widget">
-					<div class="table-box">
-						<div class="table-detail">
-							<div class="iconbox bg-purple">
-								<i class="icon-layers"></i>
+			<a href="{{ route('admin.setting.index') }}">
+				<div class="card-box">
+					<div class="bar-widget">
+						<div class="table-box">
+							<div class="table-detail">
+								<div class="iconbox bg-purple">
+									<i class="icon-layers"></i>
+								</div>
 							</div>
-						</div>
 
-						<div class="table-detail">
-							<h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
-							<h5 class="text-muted m-b-0 m-t-0">Cities, Company</h5>
+							<div class="table-detail">
+								<h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
+								<h5 class="text-muted m-b-0 m-t-0">Setting, Status, Cities</h5>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 
 	</div>

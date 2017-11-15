@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.cost.index') }}">
+            <a href="{{ route('admin.job.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -39,8 +39,8 @@
 
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Costs</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Costs</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Jobs</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">List of Job</h5>
                             </div>
                         </div>
                     </div>
@@ -77,15 +77,16 @@
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
                     <b>Default Example</b>
-                    <a href="{{ route('admin.job.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Job</a>
+                    <a href="{{ route('admin.cost.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Cost</a>
                 </h4>
 
-                <table id="partner-table" class="table table-striped table-bordered">
+                <table id="cost-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th width="30">No</th>
-                        <th>Code</th>
                         <th>Job</th>
+                        <th>Cost Type</th>
+                        <th>Cost</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -102,14 +103,15 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var table = $('#partner-table').DataTable({
+        var table = $('#cost-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.job.data') }}",
+            ajax: "{{ route('api.cost.data') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'code', name: 'code'},
                 {data: 'job', name: 'job'},
+                {data: 'cost_type', name: 'cost_type'},
+                {data: 'cost', name: 'cost'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

@@ -39,5 +39,18 @@ Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
             Route::post('/profile', 'UserController@updateProfile')->name('api.user.profile.update');
         });
 
+        Route::group(['prefix' => 'job', 'namespace' => 'Api'], function() {
+            Route::get('/', 'JobController@getJob')->name('api.job.list');
+            Route::get('cost', 'JobController@getCost')->name('api.job.cost');
+        });
+
+        Route::group(['prefix' => 'order', 'namespace' => 'Api'], function() {
+            Route::post('post', 'OrderController@postOrder')->name('api.order.post');
+        });
+
+        Route::group(['prefix' => 'setting', 'namespace' => 'Api'], function() {
+            Route::get('city', 'SettingController@getCity')->name('api.setting.city');
+        });
+
     });
 });

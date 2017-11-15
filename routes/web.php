@@ -36,6 +36,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('architect/{id}/image/', 'ArchitectController@getUploadImage')->name('admin.architect.image');
     Route::post('architect/{id}/image', 'ArchitectController@postUploadImage')->name('admin.architect.upload');
     Route::delete('architect/{id}/image', 'ArchitectController@deleteUploadImage')->name('admin.architect.delimage');
+
+
+    //Setting
+    Route::resource('setting', 'SettingController', ['names' => 'admin.setting']);
+    Route::resource('status', 'StatusController', ['names' => 'admin.status']);
+    Route::resource('city', 'CityController', ['names' => 'admin.city']);
+    Route::resource('cost', 'CostController', ['names' => 'admin.cost']);
 });
 
 Route::group(['prefix' => 'api/table'], function() {
@@ -47,5 +54,9 @@ Route::group(['prefix' => 'api/table'], function() {
 
 
     Route::get('job', 'JobController@getJobData')->name('api.job.data');
+    Route::get('cost', 'CostController@getCostData')->name('api.cost.data');
     Route::get('architect', 'ArchitectController@getArchitectData')->name('api.architect.data');
+
+    Route::get('status', 'StatusController@getStatusData')->name('api.status.data');
+    Route::get('city', 'CityController@getCityData')->name('api.city.data');
 });

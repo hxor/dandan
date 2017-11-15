@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.cost.index') }}">
+            <a href="{{ route('admin.status.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -39,8 +39,8 @@
 
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Costs</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Costs</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Statuses</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">List of Status</h5>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.architect.index') }}">
+            <a href="{{ route('admin.city.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -60,8 +60,8 @@
                             </div>
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Architect</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Gallery Architect</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Cities</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Available Cities Location</h5>
                             </div>
                         </div>
                     </div>

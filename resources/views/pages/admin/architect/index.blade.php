@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="">
+            <a href="{{ route('admin.cost.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -60,8 +60,8 @@
                             </div>
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Gallery</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Gallery of Architects</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Cost</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Cost</h5>
                             </div>
                         </div>
                     </div>

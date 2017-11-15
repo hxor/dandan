@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.cost.index') }}">
+            <a href="{{ route('admin.setting.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -39,8 +39,8 @@
 
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Costs</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Costs</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Setting</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Main Setting</h5>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.architect.index') }}">
+            <a href="{{ route('admin.status.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -60,8 +60,8 @@
                             </div>
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Architect</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Gallery Architect</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Status</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">List Status Order</h5>
                             </div>
                         </div>
                     </div>
@@ -77,15 +77,14 @@
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
                     <b>Default Example</b>
-                    <a href="{{ route('admin.job.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Job</a>
+                    <a href="{{ route('admin.city.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add City</a>
                 </h4>
 
-                <table id="partner-table" class="table table-striped table-bordered">
+                <table id="city-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th width="30">No</th>
-                        <th>Code</th>
-                        <th>Job</th>
+                        <th>City</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -102,14 +101,13 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var table = $('#partner-table').DataTable({
+        var table = $('#city-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.job.data') }}",
+            ajax: "{{ route('api.city.data') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'code', name: 'code'},
-                {data: 'job', name: 'job'},
+                {data: 'city', name: 'city'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
