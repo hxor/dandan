@@ -22,16 +22,18 @@ class PartnerController extends Controller
             'message'=>'Get Data Splash',
             'data' => [
                 'partner' => $partner,
-                'api_banner' => [
-                    'method' => 'GET',
-                    'href' => route('api.partner.banner')
-                ],
-                'api_history' => '',
-                'api_profile' => [
-                    'method' => 'GET',
-                    'href' => route('api.user.profile'),
-                    'param' => 'token'
-                ],
+            ],
+        ]);
+    }
+
+    public function getPromo()
+    {
+        $promo = Promo::paginate(9);
+        return response()->json([
+            'status' => 200,
+            'message'=>'Get Data Promo',
+            'data' => [
+                'partner' => $promo,
             ],
         ]);
     }
@@ -56,9 +58,13 @@ class PartnerController extends Controller
                     'href' => route('api.order.history'),
                     'param' => 'job_id,customer_id'
                 ],
-                'api_partner' => [
+                'api_sponsor' => [
                     'method' => 'GET',
                     'href' => route('api.partner.sponsor')
+                ],
+                'api_promo' => [
+                    'method' => 'GET',
+                    'href' => route('api.partner.promo')
                 ],
                 'api_profile' => [
                     'method' => 'GET',

@@ -31,6 +31,7 @@ Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
             Route::get('splash', 'PartnerController@getSplash')->name('api.partner.splash');
             Route::get('banner', 'PartnerController@getBanner')->name('api.partner.banner');
             Route::get('/', 'PartnerController@getPartner')->name('api.partner.sponsor');
+            Route::get('promo', 'PartnerController@getPromo')->name('api.promo.sponsor');
         });
 
 
