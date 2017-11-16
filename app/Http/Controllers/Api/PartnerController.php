@@ -53,7 +53,7 @@ class PartnerController extends Controller
                 ],
                 'api_order_history' => [
                     'method' => 'GET',
-                    'href' => route('api.order.history',[1,1]),
+                    'href' => route('api.order.history'),
                     'param' => 'job_id,customer_id'
                 ],
                 'api_partner' => [

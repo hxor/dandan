@@ -98,7 +98,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required',
             'phone' => 'required|unique:customers',
-            'email' => 'required|string|email|max:255|unique:customers',
+            'email' => 'string|email|max:255|unique:customers',
             'password' => 'required|string|min:6|confirmed'
         ]);
 
@@ -115,11 +115,12 @@ class AuthController extends Controller
             'address' => $request['address'],
             'phone' => $request['phone'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password'])
+            'password' => bcrypt($request['password']),
+            'device_id' => $request['device_id']
         ]);
 
         $credentials = [
-            'email' => $request['email'],
+            'phone' => $request['phone'],
             'password' => $request['password']
         ];
 
@@ -129,7 +130,7 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => 500,
                     'data' => null,
-                    'message' => 'invalid_email_or_password',
+                    'message' => 'invalid_phone_or_password',
                 ]);
             }
         } catch (JWTAuthException $e) {
@@ -151,7 +152,7 @@ class AuthController extends Controller
     public function loginCustomer(Request $request){
         Config::set('jwt.user' , "App\Models\Customer");
         Config::set('auth.providers.users.model', \App\Models\Customer::class);
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('phone', 'password');
         $token = null;
 
         try {
@@ -159,7 +160,7 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => 500,
                     'data' => null,
-                    'message' => 'invalid_email_or_password',
+                    'message' => 'invalid_phone_or_password',
                 ]);
             }
         } catch (JWTAuthException $e) {
@@ -170,7 +171,13 @@ class AuthController extends Controller
             ]);
         }
 
-        $user = Customer::where('email', $request->email)->first();
+        $user = Customer::where('phone', $request->phone)->first();
+
+        if ($request->device_id != null){
+            $user->update([
+                'device_id' => $request->device_id
+            ]);
+        }
 
         return response()->json([
             'status' => 200,
