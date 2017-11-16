@@ -31,12 +31,12 @@
                                 </address>
                             </div>
                             <div class="pull-right m-t-30">
-                                <p><strong>Order Date: </strong> {{ $order->created_at->format('l, d M Y') }} </p>
+                                <p><strong>Order Date: </strong> {{ $date['start'] }} to {{ $date['end'] }}</p>
                                 <p class="m-t-10">
-                                    <strong>Order Status: </strong>
-                                    <span class="label label-pink">
-                                        {{ $order->status['status'] }}
-                                    </span>
+                                    {{--<strong>Order Status: </strong>--}}
+                                    {{--<span class="label label-pink">--}}
+                                        {{--{{ $order->status['status'] }}--}}
+                                    {{--</span>--}}
                                 </p>
                             </div>
                         </div>
@@ -58,16 +58,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>{{ $order->id }}</td>
-                                        <td>{{ $order->customer->name }}</td>
-                                        <td>{{ $order->customer->phone }}</td>
-                                        <td>{{ $order->job->job }}</td>
-                                        <td>{{ $order->locate }}</td>
-                                        <td>{{ $order->date->format('l, d M Y') }}</td>
-                                        <td>Rp {{ number_format($order->cost) }}</td>
-                                        <td>{{ $order->order_desc }}</td>
-                                    </tr>
+                                    @foreach($orders as $order)
+                                        <tr>
+                                            <td>{{ $order->id }}</td>
+                                            <td>{{ $order->customer->name }}</td>
+                                            <td>{{ $order->customer->phone }}</td>
+                                            <td>{{ $order->job->job }}</td>
+                                            <td>{{ $order->locate }}</td>
+                                            <td>{{ $order->date->format('d/m/Y') }}</td>
+                                            <td>Rp {{ number_format($order->cost) }}</td>
+                                            <td>{{ $order->order_desc }}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -75,7 +77,7 @@
                     </div>
                     <div class="row">
                         <div class="pull-right col-md-3 offset-md-9">
-                            <p class="text-right"><b>Total:</b> Rp {{ number_format($order->cost) }}</p>
+                            {{--<p class="text-right"><b>Total:</b> Rp {{ number_format($order->cost) }}</p>--}}
                         </div>
                     </div>
                     <hr>

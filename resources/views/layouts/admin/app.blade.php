@@ -160,7 +160,6 @@
 <!--C3 Chart-->
 <script type="text/javascript" src="{{ url('/') }}/assets/plugins/d3/d3.min.js"></script>
 <script type="text/javascript" src="{{ url('/') }}/assets/plugins/c3/c3.min.js"></script>
-<script src="{{ url('/') }}/assets/pages/jquery.chart.js"></script>
 
 <!-- Datatables -->
 <script src="{{ url('/') }}/assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -194,7 +193,8 @@
             multidateSeparator: ","
         });
         jQuery('#date-range').datepicker({
-            toggleActive: true
+            toggleActive: true,
+            format: "yyyy-mm-dd"
         });
 
     });

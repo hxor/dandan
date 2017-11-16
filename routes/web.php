@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('customer', 'CustomerController', ['names' => 'admin.customer']);
     Route::get('customer/{id}/editpass', 'CustomerController@editPass')->name('admin.customer.editpass');
     Route::put('customer/{id}/editpass', 'CustomerController@updatePass')->name('admin.customer.updatepass');
+    Route::post('order/report', 'OrderController@getReport')->name('admin.order.reports');
 
 
     //Job
@@ -55,11 +56,15 @@ Route::group(['prefix' => 'api/table'], function() {
 
     Route::get('order', 'OrderController@getOrderData')->name('api.order.data');
 
-
     Route::get('job', 'JobController@getJobData')->name('api.job.data');
     Route::get('cost', 'CostController@getCostData')->name('api.cost.data');
     Route::get('architect', 'ArchitectController@getArchitectData')->name('api.architect.data');
 
     Route::get('status', 'StatusController@getStatusData')->name('api.status.data');
     Route::get('city', 'CityController@getCityData')->name('api.city.data');
+});
+
+Route::group(['prefix' => 'api/order'], function() {
+    Route::get('job/thismonth', 'OrderController@getOrderJobThisMonth')->name('api.order.job.month');
+    Route::get('status/thismonth', 'OrderController@getOrderStatusThisMonth')->name('api.order.status.month');
 });

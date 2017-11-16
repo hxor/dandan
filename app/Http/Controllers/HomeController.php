@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\Models\Order;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.index');
+        $jobChart = Order::getOrderJobThisMonth();
+        $statusChart = Order::getOrderStatusThisMonth();
+        return view('pages.admin.index', compact('jobChart', 'statusChart'));
     }
 }

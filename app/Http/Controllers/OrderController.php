@@ -20,7 +20,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.order.index');
+        $jobChart = Order::getOrderJobThisMonth();
+        $statusChart = Order::getOrderStatusThisMonth();
+        return view('pages.admin.order.index', compact('jobChart', 'statusChart'));
     }
 
     /**
@@ -75,11 +77,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::findOrFail($id);
-        $customer = Customer::pluck('name', 'id');
-        $status = Status::pluck('status', 'id');
-        $job = Job::pluck('job', 'id');
-        $city = City::pluck('city', 'city');
-        return view('pages.admin.order.show', compact('customer', 'status', 'job', 'order', 'city'));
+        return view('pages.admin.order.show', compact('order'));
     }
 
     /**
@@ -175,4 +173,16 @@ class OrderController extends Controller
             ->make(true);
 
     }
+
+    public function getReport(Request $request)
+    {
+        $date['start'] = $request->start;
+        $date['end'] = $request->end;
+
+        $orders = Order::whereBetween('created_at', [$date['start'], $date['end']])
+            ->get();
+
+        return view('pages.admin.order.list-order', compact('orders', 'date'));
+    }
+
 }
