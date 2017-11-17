@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <div class="clearfix">
                         <div class="pull-left">
-                            <h4 class="text-right"><img src="{{ asset('assets/images/logo.png') }}" alt="velonic"></h4>
+                            <h4 class="text-right"><img src="{{ asset($data->logo) }}" width="92" height="35" alt="velonic"></h4>
 
                         </div>
                         <div class="pull-right">
@@ -24,10 +24,9 @@
 
                             <div class="pull-left m-t-30">
                                 <address>
-                                    <strong>Dandan.</strong><br>
-                                    Jl. DR. Cipto Mangunkusumo, No 26<br>
-                                    Kesambi, Cirebon 45131<br>
-                                    <abbr title="Phone">P:</abbr> (0231) 236-352
+                                    <strong>{{ $data->name }}.</strong><br>
+                                    {{ $data->address }}<br>
+                                    <abbr title="Phone">P:</abbr> {{ $data->phone }}
                                 </address>
                             </div>
                             <div class="pull-right m-t-30">

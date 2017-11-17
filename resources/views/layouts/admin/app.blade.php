@@ -60,7 +60,7 @@
             <!-- Logo container-->
             <div class="logo">
                 <a href="{{ url('/home') }}" class="logo">
-                    <span>Ub<i class="md md-album"></i>ld</span>
+                    <span>Dan<i class="md md-home"></i>Dan</span>
                 </a>
             </div>
             <!-- End Logo container-->

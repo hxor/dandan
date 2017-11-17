@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\Status;
 use App\Models\Job;
 use App\Models\City;
+use App\Models\Setting;
 
 class OrderController extends Controller
 {
@@ -77,7 +78,8 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::findOrFail($id);
-        return view('pages.admin.order.show', compact('order'));
+        $data = Setting::orderBy('id', 'desc')->first();
+        return view('pages.admin.order.show', compact('order', 'data'));
     }
 
     /**
@@ -176,13 +178,15 @@ class OrderController extends Controller
 
     public function getReport(Request $request)
     {
+        $data = Setting::orderBy('id', 'desc')->first();
+
         $date['start'] = $request->start;
         $date['end'] = $request->end;
 
         $orders = Order::whereBetween('created_at', [$date['start'], $date['end']])
             ->get();
 
-        return view('pages.admin.order.list-order', compact('orders', 'date'));
+        return view('pages.admin.order.list-order', compact('orders', 'date', 'data'));
     }
 
 }
