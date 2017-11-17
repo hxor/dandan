@@ -93,46 +93,50 @@
     </div>
     <!-- end row Menu-->
 
+    {!! Form::model($data, ['route' => 'admin.setting.store', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
+
     <div class="row">
-        <div class="col-sm-12">
-            <div class="card-box table-responsive">
-                <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
-                    <a href="{{ route('admin.job.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Job</a>
-                </h4>
+        <div class="col-md-12">
+          {!! Form::submit('Save All', ['class' => 'btn btn-primary pull-right']) !!}
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div class="col-xs-2"> <!-- required for floating -->
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs tabs-left sideways">
+                <li class="active"><a href="#settings-v" data-toggle="tab">Settings</a></li>
+              </ul>
+            </div>
 
-                <table id="partner-table" class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th width="30">No</th>
-                        <th>Code</th>
-                        <th>Job</th>
-                        <th></th>
-                    </tr>
-                    </thead>
+            <div class="col-xs-10">
+              <!-- Tab panes -->
+              @include('pages.admin.setting._form')
+            </div>
 
-
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="clearfix"></div> 
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+          {!! Form::submit('Save All', ['class' => 'btn btn-primary pull-right']) !!}
+        </div>
+    </div>
+    <!-- end row -->
+    {!! Form::close() !!}
     <!-- End row Datatable -->
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script type="text/javascript">
-        var table = $('#partner-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('api.job.data') }}",
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'code', name: 'code'},
-                {data: 'job', name: 'job'},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
+        $(document).ready(function () {
+            $('#lfm').filemanager('image');
         });
     </script>
 @endsection

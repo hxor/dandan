@@ -19,7 +19,9 @@ class OrdersTableSeeder extends Seeder
             "city" =>  "Cirebon",
             "date" =>  "2017-11-10",
             "cost" =>  300000,
-            "order_desc" => "Service AC Installation"
+            "order_desc" => "Service AC Installation",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
         ];
 
         DB::table('orders')->insert($order);

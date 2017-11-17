@@ -41,7 +41,10 @@ Route::group(['prefix' => 'admin'], function() {
 
 
     //Setting
-    Route::resource('setting', 'SettingController', ['names' => 'admin.setting']);
+    Route::resource('setting', 'SettingController', [
+        'names' => 'admin.setting',
+        'only' => ['index', 'store']
+    ]);
     Route::resource('status', 'StatusController', ['names' => 'admin.status']);
     Route::resource('city', 'CityController', ['names' => 'admin.city']);
     Route::resource('cost', 'CostController', ['names' => 'admin.cost']);

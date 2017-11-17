@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Setting;
+
 class SettingController extends Controller
 {
     /**
@@ -13,17 +15,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.setting.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $data = Setting::orderBy('id', 'desc')->first();
+        return view('pages.admin.setting.index', compact('data'));
     }
 
     /**
@@ -34,51 +27,14 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $setting = Setting::firstOrCreate(['id' => 1]);
+        $setting->update($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        notify()->flash('Done!', 'success', [
+            'timer' => 1500,
+            'text' => 'Setting successfully Updated',
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('admin.setting.index');
     }
 }
