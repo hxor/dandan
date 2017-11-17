@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('status', 'StatusController', ['names' => 'admin.status']);
     Route::resource('city', 'CityController', ['names' => 'admin.city']);
     Route::resource('cost', 'CostController', ['names' => 'admin.cost']);
+    Route::resource('user', 'UserController', ['names' => 'admin.user']);
+    Route::get('user/{id}/editpass', 'UserController@editPass')->name('admin.user.editpass');
+    Route::put('user/{id}/editpass', 'UserController@updatePass')->name('admin.user.updatepass');
 });
 
 Route::group(['prefix' => 'api/table'], function() {
@@ -62,6 +65,7 @@ Route::group(['prefix' => 'api/table'], function() {
 
     Route::get('status', 'StatusController@getStatusData')->name('api.status.data');
     Route::get('city', 'CityController@getCityData')->name('api.city.data');
+    Route::get('user', 'UserController@getUserData')->name('api.user.data');
 });
 
 Route::group(['prefix' => 'api/order'], function() {

@@ -70,7 +70,7 @@
         </div>
 
         <div class="col-lg-3">
-            <a href="{{ route('admin.user.index') }}">
+            <a href="{{ route('admin.setting.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
                         <div class="table-box">
@@ -81,8 +81,8 @@
                             </div>
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Users</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List of User</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Settings</h5>
                             </div>
                         </div>
                     </div>
@@ -98,15 +98,17 @@
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
                     <b>Default Example</b>
-                    <a href="{{ route('admin.job.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Job</a>
+                    <a href="{{ route('admin.user.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add User</a>
                 </h4>
 
-                <table id="partner-table" class="table table-striped table-bordered">
+                <table id="user-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th width="30">No</th>
-                        <th>Code</th>
-                        <th>Job</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -123,14 +125,16 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var table = $('#partner-table').DataTable({
+        var table = $('#user-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.job.data') }}",
+            ajax: "{{ route('api.user.data') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'code', name: 'code'},
-                {data: 'job', name: 'job'},
+                {data: 'name', name: 'name'},
+                {data: 'username', name: 'username'},
+                {data: 'email', name: 'email'},
+                {data: 'role', name: 'role'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

@@ -82,7 +82,7 @@
 
 							<div class="table-detail">
 								<h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Setting, Status, Cities</h5>
+								<h5 class="text-muted m-b-0 m-t-0">Setting, Status, Cities, Users</h5>
 							</div>
 						</div>
 					</div>
