@@ -12,11 +12,25 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = [
-            'name' => 'Admin',
-            'username' => 'admin',
-            'email' => 'admin@mail.com',
-            'role' => 'admin',
-            'password' => bcrypt('password')
+            [
+                'name' => 'Admin',
+                'username' => 'admin',
+                'email' => 'admin@mail.com',
+                'role' => 'admin',
+                'password' => bcrypt('password')
+            ],[
+                'name' => 'Manager',
+                'username' => 'manager',
+                'email' => 'manager@mail.com',
+                'role' => 'manager',
+                'password' => bcrypt('password')
+            ],[
+                'name' => 'Supervisosr',
+                'username' => 'supervisor',
+                'email' => 'supervisor@mail.com',
+                'role' => 'supervisor',
+                'password' => bcrypt('password')
+            ]
         ];
 
         $customer = [

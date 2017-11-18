@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'cors' => \Barryvdh\Cors\HandleCors::class,
         'jwt.auth' => \App\Http\Middleware\VerifyJWTToken::class,
+        'role' => \App\Http\Middleware\Role::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
