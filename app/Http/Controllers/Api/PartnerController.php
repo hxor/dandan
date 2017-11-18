@@ -40,7 +40,7 @@ class PartnerController extends Controller
 
     public function getSplash()
     {
-        $splash = Splash::where('is_active', 1)->limit(4)->get();
+        $splash = Splash::where('is_active', 1)->first();
         $job = Job::all();
         $cost = Cost::all();
         $city = City::all();
