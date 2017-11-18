@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('customer/{id}/editpass', 'CustomerController@editPass')->name('admin.customer.editpass');
     Route::put('customer/{id}/editpass', 'CustomerController@updatePass')->name('admin.customer.updatepass');
     Route::post('order/report', 'OrderController@getReport')->name('admin.order.reports');
+    Route::get('send/notif', 'CustomerController@getNotifView')->name('admin.customer.notif');
+    Route::post('send/notif', 'CustomerController@postNotif')->name('admin.customer.sendnotif');
 
 
     //Job

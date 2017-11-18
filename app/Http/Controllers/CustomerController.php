@@ -189,4 +189,26 @@ class CustomerController extends Controller
             ->make(true);
 
     }
+
+    public function getNotifView()
+    {
+        return view('pages.admin.customer.notif');
+    }
+
+    public function postNotif(Request $request)
+    {
+        $message = [
+            'title' => $request->title,
+            'body' => $request->body
+        ];
+
+        fcm()->data($message)->toTopics('/topics/news');
+
+        notify()->flash('Done!', 'success', [
+            'timer' => 1500,
+            'text' => 'Sending Info successfully',
+        ]);
+
+        return redirect()->route('admin.customer.index');
+    }
 }

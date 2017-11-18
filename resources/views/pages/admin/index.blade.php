@@ -41,7 +41,7 @@
 
 								<div class="table-detail">
 									<h4 class="m-t-0 m-b-5"><b>Customer</b></h4>
-									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders</h5>
+									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders, Info</h5>
 								</div>
 							</div>
 						</div>
@@ -129,7 +129,7 @@
 
 								<div class="table-detail">
 									<h4 class="m-t-0 m-b-5"><b>Customer</b></h4>
-									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders</h5>
+									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders, Send Info</h5>
 								</div>
 							</div>
 						</div>
@@ -196,6 +196,27 @@
 								<div class="table-detail">
 									<h4 class="m-t-0 m-b-5"><b>Order</b></h4>
 									<h5 class="text-muted m-b-0 m-t-0">List of Orders</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-lg-3">
+				<a href="{{ route('admin.customer.notif') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-warning">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Send Info</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Send Information for clients</h5>
 								</div>
 							</div>
 						</div>
