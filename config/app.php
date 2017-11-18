@@ -174,6 +174,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Codecourse\Notify\NotifyServiceProvider::class,
+        Idstack\Fcm\FcmServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -239,6 +240,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Notify' => Codecourse\Notify\Facades\Notify::class,
+        'Fcm' => Idstack\Fcm\Facades\Fcm::class,
 
     ],
 

@@ -69,6 +69,13 @@ class OrderController extends Controller
             $input = $request->all();
             $order = Order::create($input);
 
+            $message = [
+                'title' => 'Order Job Baru',
+                'body' => 'Terdapat order baru yang dipesan. Harap Periksa.'
+            ];
+            
+            fcm()->data($message)->toTopics('/topics/android');
+
             return response()->json([
                 'status' => 200,
                 'message' => 'success_to_create_order',

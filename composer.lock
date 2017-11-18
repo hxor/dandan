@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc7d240a62396a8d8e8e4fcfdade6c21",
+    "content-hash": "355516bceb5bc2ce1e8c5e42e8a55ee7",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
@@ -315,6 +315,46 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "idstack/laravel-fcm",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/indstack/laravel-fcm.git",
+                "reference": "278835cd9cbe4582f7dc22abd066ace8e4c0d00d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/indstack/laravel-fcm/zipball/278835cd9cbe4582f7dc22abd066ace8e4c0d00d",
+                "reference": "278835cd9cbe4582f7dc22abd066ace8e4c0d00d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Idstack\\Fcm\\": "src/"
+                },
+                "files": [
+                    "src/Idstack/Fcm/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hakim SM",
+                    "email": "hakimsembiring@outlook.co.id"
+                }
+            ],
+            "description": "Package to send Firebase notification cross Laravel Application",
+            "time": "2017-11-18T15:07:57+00:00"
         },
         {
             "name": "intervention/image",
