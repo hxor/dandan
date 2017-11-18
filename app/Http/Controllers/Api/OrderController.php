@@ -19,7 +19,7 @@ class OrderController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => '422',
+                'status' => 404,
                 'message' => $validator->getMessageBag()->toArray(),
                 'data' => null
             ]);
@@ -59,7 +59,7 @@ class OrderController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => '422',
+                'status' => 404,
                 'message' => $validator->getMessageBag()->toArray(),
                 'data' => null
             ]);

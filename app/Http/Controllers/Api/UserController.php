@@ -23,7 +23,7 @@ class UserController extends Controller
 
             if ($validator->fails()) {
                 return response()->json([
-                    'status' => '422',
+                    'status' => 404,
                     'data' => null,
                     'message' => $validator->getMessageBag()->toArray()
                 ]);
@@ -67,7 +67,7 @@ class UserController extends Controller
 
             if ($validator->fails()) {
                 return response()->json([
-                    'status' => '422',
+                    'status' => 404,
                     'data' => null,
                     'message' => $validator->getMessageBag()->toArray()
                 ]);

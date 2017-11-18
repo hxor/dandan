@@ -25,13 +25,16 @@ Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
         Route::post('/customer/login', 'Api\AuthController@loginCustomer');
     });
 
+    
+    Route::get('partner/splash', 'Api\PartnerController@getSplash')->name('api.partner.splash');
+    
+
     Route::group(['middleware' => 'jwt.auth'], function () {
 
         Route::group(['prefix' => 'partner', 'namespace' => 'Api'], function(){
-            Route::get('splash', 'PartnerController@getSplash')->name('api.partner.splash');
             Route::get('banner', 'PartnerController@getBanner')->name('api.partner.banner');
             Route::get('/', 'PartnerController@getPartner')->name('api.partner.sponsor');
-            Route::get('promo', 'PartnerController@getPromo')->name('api.promo.sponsor');
+            Route::get('promo', 'PartnerController@getPromo')->name('api.partner.promo');
         });
 
 
