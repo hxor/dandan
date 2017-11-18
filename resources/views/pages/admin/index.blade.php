@@ -5,90 +5,204 @@
 	@include('layouts.admin.partials._bread', ['data' => empty($bread) ? '' : $bread])
 
 	<div class="row">
-		<div class="col-lg-3">
-			<a href="{{ route('admin.partner.index') }}">
-				<div class="card-box">
-					<div class="bar-widget">
-						<div class="table-box waves-effect waves-light">
-							<div class="table-detail">
-								<div class="iconbox bg-purple">
-									<i class="icon-layers"></i>
+		@can('admin-access')
+			<div class="col-lg-3">
+				<a href="{{ route('admin.partner.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box waves-effect waves-light">
+								<div class="table-detail">
+									<div class="iconbox bg-purple">
+										<i class="icon-layers"></i>
+									</div>
 								</div>
-							</div>
 
-							<div class="table-detail">
-								<h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Partner Splash, Promo, Banner</h5>
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Partner Splash, Promo, Banner</h5>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		</div>
+				</a>
+			</div>
 
-		<div class="col-lg-3">
-			<a href="{{ route('admin.customer.index') }}">
-				<div class="card-box">
-					<div class="bar-widget">
-						<div class="table-box">
-							<div class="table-detail">
-								<div class="iconbox bg-inverse">
-									<i class="icon-layers"></i>
+			<div class="col-lg-3">
+				<a href="{{ route('admin.customer.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-inverse">
+										<i class="icon-layers"></i>
+									</div>
 								</div>
-							</div>
 
 
-							<div class="table-detail">
-								<h4 class="m-t-0 m-b-5"><b>Customer</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Customer, Orders</h5>
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Customer</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders</h5>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		</div>
+				</a>
+			</div>
 
-		<div class="col-lg-3">
-			<a href="{{ route('admin.job.index') }}">
-				<div class="card-box">
-					<div class="bar-widget">
-						<div class="table-box">
-							<div class="table-detail">
-								<div class="iconbox bg-warning">
-									<i class="icon-layers"></i>
+			<div class="col-lg-3">
+				<a href="{{ route('admin.job.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-warning">
+										<i class="icon-layers"></i>
+									</div>
 								</div>
-							</div>
 
-							<div class="table-detail">
-								<h4 class="m-t-0 m-b-5"><b>Data Master</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Jobs, Architects, Costs</h5>
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Data Master</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Jobs, Architects, Costs</h5>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		</div>
+				</a>
+			</div>
 
-		<div class="col-lg-3">
-			<a href="{{ route('admin.setting.index') }}">
-				<div class="card-box">
-					<div class="bar-widget">
-						<div class="table-box">
-							<div class="table-detail">
-								<div class="iconbox bg-purple">
-									<i class="icon-layers"></i>
+			<div class="col-lg-3">
+				<a href="{{ route('admin.setting.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-purple">
+										<i class="icon-layers"></i>
+									</div>
 								</div>
-							</div>
 
-							<div class="table-detail">
-								<h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
-								<h5 class="text-muted m-b-0 m-t-0">Setting, Status, Cities, Users</h5>
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Settings</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Setting, Status, Cities, Users</h5>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		</div>
+				</a>
+			</div>
+		@endcan
+
+
+		@can('manager-access')
+			<div class="col-lg-3">
+				<a href="{{ route('admin.partner.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box waves-effect waves-light">
+								<div class="table-detail">
+									<div class="iconbox bg-purple">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Partner Splash, Promo, Banner</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-lg-3">
+				<a href="{{ route('admin.customer.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-inverse">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Customer</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Customer, Orders</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-lg-3">
+				<a href="{{ route('admin.job.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-warning">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Data Master</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Jobs, Architects, Costs</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		@endcan
+
+		@can('supervisor-access')
+			<div class="col-lg-3">
+				<a href="{{ url('/home') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-purple">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Dashboard</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">Admin Panel</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-lg-3">
+				<a href="{{ route('admin.order.index') }}">
+					<div class="card-box">
+						<div class="bar-widget">
+							<div class="table-box">
+								<div class="table-detail">
+									<div class="iconbox bg-inverse">
+										<i class="icon-layers"></i>
+									</div>
+								</div>
+
+
+								<div class="table-detail">
+									<h4 class="m-t-0 m-b-5"><b>Order</b></h4>
+									<h5 class="text-muted m-b-0 m-t-0">List of Orders</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		@endcan
 
 	</div>
 	<!-- end row Menu-->
