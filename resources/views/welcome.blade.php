@@ -66,7 +66,7 @@
                 <ul class="nav navbar-nav navbar-right pull-right">
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}" class="nav-link waves-effect waves-light nav-user">Login</a></li>
-                        <li><a href="{{ route('register') }}" class="nav-link waves-effect waves-light nav-user">Register</a></li>
+                        {{--  <li><a href="{{ route('register') }}" class="nav-link waves-effect waves-light nav-user">Register</a></li>  --}}
                     @else
                         <li class="navbar-c-items">
                             <form role="search" class="navbar-left app-search pull-left hidden-xs">

@@ -117,7 +117,7 @@
                         <th>Customer</th>
                         <th>Phone</th>
                         <th>Job</th>
-                        <th>City</th>
+                        <th>Cost</th>
                         <th>Date</th>
                         <th>Status</th>
                         <th></th>
@@ -145,8 +145,8 @@
                 {data: 'customer', name: 'customer'},
                 {data: 'phone', name: 'phone'},
                 {data: 'job', name: 'job'},
-                {data: 'city', name: 'city'},
-                {data: 'date', name: 'date'},
+                {data: 'order_cost', name: 'order_cost'},
+                {data: 'order_date', name: 'order_date'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

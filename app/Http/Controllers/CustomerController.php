@@ -45,14 +45,10 @@ class CustomerController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-        $customer = [
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ];
+        //merge password hash
+        $request->merge(['password' => bcrypt($request->get('password'))]);
 
-        Customer::create($customer);
+        Customer::create($request->all());
 
         notify()->flash('Done!', 'success', [
             'timer' => 1500,
