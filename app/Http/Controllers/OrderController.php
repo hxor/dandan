@@ -128,7 +128,8 @@ class OrderController extends Controller
         $device_id = [$order->customer->device_id]; //must an array for lists customers
         $message = [
             'title' => 'Status Order Berubah',
-            'body' => 'status order ' . $order->job->job . ' : ' . $order->status->status
+            'body' => 'status order ' . $order->job->job . ' : ' . $order->status->status,
+            'status_id' => $request->status_id
         ];
 
         fcm()->data($message)->to($device_id);

@@ -128,14 +128,14 @@ class AuthController extends Controller
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
-                    'status' => 500,
+                    'status' => 400,
                     'data' => null,
                     'message' => 'invalid_phone_or_password',
                 ]);
             }
         } catch (JWTAuthException $e) {
             return response()->json([
-                'status' => 500,
+                'status' => 401,
                 'data' => null,
                 'message' => 'failed_to_create_token',
             ]);
@@ -150,6 +150,18 @@ class AuthController extends Controller
         ]);
     }
     public function loginCustomer(Request $request){
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required',
+            'password' => 'required|string|min:6'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 404,
+                'data' => null,
+                'message' => $validator->getMessageBag()->toArray()
+            ]);
+        }
         Config::set('jwt.user' , "App\Models\Customer");
         Config::set('auth.providers.users.model', \App\Models\Customer::class);
         $credentials = $request->only('phone', 'password');
@@ -158,14 +170,14 @@ class AuthController extends Controller
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
-                    'status' => 500,
+                    'status' => 400,
                     'data' => null,
                     'message' => 'invalid_phone_or_password',
                 ]);
             }
         } catch (JWTAuthException $e) {
             return response()->json([
-                'status' => 500,
+                'status' => 401,
                 'data' => null,
                 'message' => 'failed_to_create_token',
             ]);
