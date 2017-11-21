@@ -23,19 +23,19 @@ class VerifyJWTToken
         }catch (Exception $e) {
             if($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
                 return response()->json([
-                    'status' => '401',
+                    'status' => 401,
                     'data' => null,
                     'message' => 'token_expired'
                 ], $e->getStatusCode());
             }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
                 return response()->json([
-                    'status' => '401',
+                    'status' => 401,
                     'data' => null,
                     'message' => 'token_expired'
                 ], $e->getStatusCode());
             }else{
                 return response()->json([
-                    'status' => '401',
+                    'status' => 401,
                     'data' => null,
                     'message' => 'token_required'
                 ]);
