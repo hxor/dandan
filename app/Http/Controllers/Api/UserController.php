@@ -26,7 +26,7 @@ class UserController extends Controller
                     'status' => 404,
                     'data' => null,
                     'message' => $validator->getMessageBag()->toArray()
-                ]);
+                ], 200);
             }
 
             $user_id = $request->user_id;
@@ -50,7 +50,7 @@ class UserController extends Controller
                 'status' => 500,
                 'data' => null,
                 'message' => $e->getMessage()
-            ]);
+            ], 200);
         }
     }
 
@@ -70,7 +70,7 @@ class UserController extends Controller
                     'status' => 404,
                     'data' => null,
                     'message' => $validator->getMessageBag()->toArray()
-                ]);
+                ], 200);
             }
 
             $user = Customer::findOrFail($request->user_id);
@@ -99,7 +99,7 @@ class UserController extends Controller
                 'status' => 500,
                 'data' => null,
                 'message' => $e->getMessage()
-            ]);
+            ], 200);
         }
     }
 }

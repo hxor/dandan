@@ -22,7 +22,7 @@ class OrderController extends Controller
                 'status' => 404,
                 'message' => $validator->getMessageBag()->toArray(),
                 'data' => null
-            ]);
+            ], 200);
         }
 
         try {
@@ -41,7 +41,7 @@ class OrderController extends Controller
                 'status' => 500,
                 'data' => null,
                 'message' => $e->getMessage()
-            ]);
+            ], 200);
         }
     }
     public function postOrder(Request $request)
@@ -62,7 +62,7 @@ class OrderController extends Controller
                 'status' => 404,
                 'message' => $validator->getMessageBag()->toArray(),
                 'data' => null
-            ]);
+            ], 200);
         }
 
         try {
@@ -87,7 +87,7 @@ class OrderController extends Controller
                 'status' => 500,
                 'data' => null,
                 'message' => $e->getMessage()
-            ]);
+            ], 200);
         }
 
     }

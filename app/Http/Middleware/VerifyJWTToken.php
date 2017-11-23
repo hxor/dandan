@@ -26,19 +26,19 @@ class VerifyJWTToken
                     'status' => 401,
                     'data' => null,
                     'message' => 'token_expired'
-                ], $e->getStatusCode());
+                ], 200);
             }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
                 return response()->json([
                     'status' => 401,
                     'data' => null,
                     'message' => 'token_expired'
-                ], $e->getStatusCode());
+                ], 200);
             }else{
                 return response()->json([
                     'status' => 401,
                     'data' => null,
                     'message' => 'token_required'
-                ]);
+                ], 200);
             }
         }
         return $next($request);

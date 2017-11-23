@@ -11,6 +11,7 @@ use App\Models\Partner;
 use App\Models\Job;
 use App\Models\Cost;
 use App\Models\City;
+use App\Models\Architect;
 
 class PartnerController extends Controller
 {
@@ -66,6 +67,10 @@ class PartnerController extends Controller
                     'method' => 'GET',
                     'href' => route('api.partner.promo')
                 ],
+                'api_architect' => [
+                    'method' => 'GET',
+                    'href' => route('api.partner.architect')
+                ],
                 'api_profile' => [
                     'method' => 'GET',
                     'href' => route('api.user.profile'),
@@ -98,6 +103,18 @@ class PartnerController extends Controller
             'message'=>'Get Data Banner',
             'data' => [
                 'banner' => $banner,
+            ],
+        ]);
+    }
+
+    public function getArchitect()
+    {
+        $arch = Architect::paginate(9);
+        return response()->json([
+            'status' => 200,
+            'message' => 'Get Data Architect',
+            'data' => [
+                'architect' => $arch,
             ],
         ]);
     }
