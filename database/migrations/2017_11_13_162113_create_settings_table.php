@@ -20,6 +20,7 @@ class CreateSettingsTable extends Migration
             $table->string('phone');
             $table->text('logo');
             $table->text('aboutus');
+            $table->text('linkps')->nullable();
             $table->timestamps();
         });
     }

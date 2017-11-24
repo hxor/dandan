@@ -57,6 +57,7 @@ Route::group(['prefix' => 'v1','middleware' => ['api','cors']], function () {
 
         Route::group(['prefix' => 'setting', 'namespace' => 'Api'], function() {
             Route::get('city', 'SettingController@getCity')->name('api.setting.city');
+            Route::get('aboutus', 'SettingController@getAboutUser')->name('api.setting.aboutus');
         });
 
     });

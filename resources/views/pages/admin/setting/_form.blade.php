@@ -37,5 +37,11 @@
             {!! Form::textarea('aboutus', null, ['class' => 'form-control', 'required' => 'required']) !!}
             <small class="text-danger">{{ $errors->first('aboutus') }}</small>
         </div>
+
+        <div class="form-group{{ $errors->has('linkps') ? ' has-error' : '' }}">
+            {!! Form::label('linkps', 'PlayStore Link') !!}
+            {!! Form::text('linkps', null, ['class' => 'form-control', 'required' => 'required']) !!}
+            <small class="text-danger">{{ $errors->first('linkps') }}</small>
+        </div>
     </div>
 </div>
