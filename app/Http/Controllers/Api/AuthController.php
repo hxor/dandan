@@ -110,8 +110,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 404,
-                'data' => null,
-                'message' => $validator->getMessageBag()->toArray()
+                'data' => $validator->getMessageBag()->toArray()
             ], 200);
         }
 
@@ -163,8 +162,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 404,
-                'data' => null,
-                'message' => $validator->getMessageBag()->toArray()
+                'data' => $validator->getMessageBag()->toArray()
             ], 200);
         }
         Config::set('jwt.user' , "App\Models\Customer");
