@@ -175,6 +175,19 @@
         jQuery('#datepicker').datepicker({
             format: "yyyy-mm-dd"
         });
+
+        // Year Picker
+        jQuery('#yearpicker').datepicker({
+            minViewMode: 2,
+            format: "yyyy"
+        });
+
+        // Month Picker
+        jQuery('#monthpicker').datepicker({
+            minViewMode: 1,
+            format: "mm"
+        });
+
         jQuery('#datepicker-autoclose').datepicker({
             autoclose: true,
             todayHighlight: true,

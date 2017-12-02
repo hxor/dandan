@@ -26,6 +26,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $month = $request->month;
+        $year = $request->year;
+        $city = $request->city;
+        
         if ($request->user()->role == 'admin') {
             $jobChart = Order::getOrderJobThisMonth();
             $statusChart = Order::getOrderStatusThisMonth();

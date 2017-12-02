@@ -163,25 +163,45 @@
 	<!-- end row Menu-->
 
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-md-12">
 			<div class="card-box">
-				{{ Carbon\Carbon::now()->format('F Y') }}
-				<h4 class="m-t-0 m-b-30 header-title"><b>Chart by Job</b></h4>
+				<h4 class="m-t-0 header-title"><b>Sort Chart By :</b></h4>
+				<div class="row m-b-30">
+					<div class="col-sm-12">					
+						<form action="{{ route('home') }}" method="GET" class="form-inline">
+							<div class="form-group">
+								<input type="text" name="month" class="form-control" id="monthpicker" placeholder="Month">
+							</div>
+							<div class="form-group">
+								<input type="text" name="year" class="form-control" id="yearpicker" placeholder="Year">
+							</div>
+							<div class="form-group">
+								{!! Form::select('city',[''=>' Select City ']+App\Models\City::pluck('city', 'city')->all(), null, ['class' => 'form-control',]) !!}
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light m-l-10 btn-md">Search</button>
+						</form>
+					</div>
+				</div>
 
-				<div id="category-chart"></div>
+				<div class="row">
+					<div class="col-md-6">
+						{{ Carbon\Carbon::now()->format('F Y') }}
+						<h4 class="m-t-0 m-b-30 header-title"><b>Chart by Job</b></h4>
+						<div id="category-chart"></div>
+					</div>
+					
+					<div class="col-md-6">
+						{{ Carbon\Carbon::now()->format('F Y') }}
+						<h4 class="m-t-0 m-b-30 header-title"><b>Chart by Status</b></h4>
+						<div id="status-chart"></div>
+					</div>
+				</div>
 			</div>
 		</div>
+	</row>
 
-
-
-		<div class="col-lg-6">
-			<div class="card-box">
-				{{ Carbon\Carbon::now()->format('F Y') }}
-				<h4 class="m-t-0 m-b-30 header-title"><b>Chart by Status</b></h4>
-
-				<div id="status-chart"></div>
-			</div>
-		</div>
+	<div class="row">
+		
 	</div>
 	<!-- End row C3-2-->
 @endsection
