@@ -62,7 +62,6 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'address' => 'required',
                 'phone' => 'required',
-                'email' => 'required|string|email|max:255|unique:users,email,' . $request->user_id,
             ]);
 
             if ($validator->fails()) {
