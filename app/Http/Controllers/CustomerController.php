@@ -194,6 +194,7 @@ class CustomerController extends Controller
     public function postNotif(Request $request)
     {
         $message = [
+            'status_id' => '69',
             'title' => $request->title,
             'body' => $request->body
         ];
