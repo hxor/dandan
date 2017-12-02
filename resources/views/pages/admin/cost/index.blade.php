@@ -9,7 +9,7 @@
             <a href="{{ url('/home') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-purple">
                                     <i class="icon-layers"></i>
@@ -30,17 +30,16 @@
             <a href="{{ route('admin.job.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
-
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Jobs</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List of Job</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Job</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Job's List</h5>
                             </div>
                         </div>
                     </div>
@@ -52,7 +51,7 @@
             <a href="{{ route('admin.architect.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-warning">
                                     <i class="icon-layers"></i>
@@ -61,7 +60,7 @@
 
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Architect</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Gallery Architect</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">Architect</h5>
                             </div>
                         </div>
                     </div>
@@ -76,7 +75,7 @@
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
+                    <b>Job's Cost</b>
                     <a href="{{ route('admin.cost.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Cost</a>
                 </h4>
 

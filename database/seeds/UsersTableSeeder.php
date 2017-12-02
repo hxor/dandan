@@ -24,12 +24,6 @@ class UsersTableSeeder extends Seeder
                 'email' => 'manager@mail.com',
                 'role' => 'manager',
                 'password' => bcrypt('password')
-            ],[
-                'name' => 'Supervisosr',
-                'username' => 'supervisor',
-                'email' => 'supervisor@mail.com',
-                'role' => 'supervisor',
-                'password' => bcrypt('password')
             ]
         ];
 

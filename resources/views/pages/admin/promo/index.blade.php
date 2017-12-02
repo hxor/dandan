@@ -76,7 +76,7 @@
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
+                    <b>Promo List</b>
                     <a href="{{ route('admin.promo.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Promo</a>
                 </h4>
 

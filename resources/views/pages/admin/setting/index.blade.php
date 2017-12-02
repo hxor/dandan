@@ -9,7 +9,7 @@
             <a href="{{ url('/home') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-purple">
                                     <i class="icon-layers"></i>
@@ -30,17 +30,16 @@
             <a href="{{ route('admin.status.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
-
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Statuses</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List of Status</h5>
+                                <h4 class="m-t-0 m-b-5"><b>Status</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Status's List</h5>
                             </div>
                         </div>
                     </div>
@@ -52,7 +51,7 @@
             <a href="{{ route('admin.city.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-warning">
                                     <i class="icon-layers"></i>
@@ -61,7 +60,7 @@
 
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Cities</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Available Cities Location</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">Available City</h5>
                             </div>
                         </div>
                     </div>
@@ -73,16 +72,16 @@
             <a href="{{ route('admin.user.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
-                                <div class="iconbox bg-purple">
+                                <div class="iconbox bg-primary">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
                             <div class="table-detail">
-                                <h4 class="m-t-0 m-b-5"><b>Users</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List of User</h5>
+                                <h4 class="m-t-0 m-b-5"><b>User</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Employe</h5>
                             </div>
                         </div>
                     </div>

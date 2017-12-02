@@ -35,7 +35,7 @@
     </div>
     <!-- End row -->
 
-    <div class="row">
+    {{--  <div class="row">
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    <!-- End row Datatable -->
+    <!-- End row Datatable -->  --}}
 @endsection
 
 @section('scripts')

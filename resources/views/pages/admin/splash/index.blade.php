@@ -32,14 +32,14 @@
                     <div class="bar-widget">
                         <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
-                                <div class="iconbox bg-purple">
+                                <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">Partner Splash, Promo, Banner</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">Partnership Data</h5>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
+                    <b>Partner Splash Screen</b>
                     <a href="{{ route('admin.splash.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Splash</a>
                 </h4>
 

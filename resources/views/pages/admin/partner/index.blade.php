@@ -9,7 +9,7 @@
             <a href="{{ url('/home') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-purple">
                                     <i class="icon-layers"></i>
@@ -52,7 +52,7 @@
             <a href="{{ route('admin.promo.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-warning">
                                     <i class="icon-layers"></i>
@@ -61,7 +61,7 @@
 
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Promo</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List Promo</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">Promo and Home Banner</h5>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
+                    <b>Partnership Data</b>
                     <a href="{{ route('admin.partner.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Partner</a>
                 </h4>
 

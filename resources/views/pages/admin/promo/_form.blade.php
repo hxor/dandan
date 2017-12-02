@@ -1,5 +1,5 @@
 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-    {!! Form::label('title', 'Promo Title') !!}
+    {!! Form::label('title', 'Periode/Title') !!}
     {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required' => 'required', 'autofocus']) !!}
     <small class="text-danger">{{ $errors->first('title') }}</small>
 </div>

@@ -9,7 +9,7 @@
             <a href="{{ url('/home') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-purple">
                                     <i class="icon-layers"></i>
@@ -30,17 +30,16 @@
             <a href="{{ route('admin.order.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
-
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Order</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List of Orders</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">List of Order</h5>
                             </div>
                         </div>
                     </div>
@@ -51,21 +50,21 @@
         <div class="col-lg-3">
 				<a href="{{ route('admin.customer.notif') }}">
 					<div class="card-box">
-						<div class="bar-widget">
-							<div class="table-box">
-								<div class="table-detail">
-									<div class="iconbox bg-warning">
-										<i class="icon-layers"></i>
-									</div>
-								</div>
+                        <div class="bar-widget">
+                            <div class="table-box waves-effect waves-light">
+                                <div class="table-detail">
+                                    <div class="iconbox bg-warning">
+                                        <i class="icon-layers"></i>
+                                    </div>
+                                </div>
 
-								<div class="table-detail">
-									<h4 class="m-t-0 m-b-5"><b>Send Info</b></h4>
-									<h5 class="text-muted m-b-0 m-t-0">Send Information for clients</h5>
-								</div>
-							</div>
-						</div>
-					</div>
+                                <div class="table-detail">
+                                    <h4 class="m-t-0 m-b-5"><b>Broadcast</b></h4>
+                                    <h5 class="text-muted m-b-0 m-t-0">Send Information</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</a>
 			</div>
 
@@ -76,7 +75,7 @@
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <h4 class="m-t-0 header-title">
-                    <b>Default Example</b>
+                    <b>Customer List</b>
                     <a href="{{ route('admin.customer.create') }}" class="btn btn-primary waves-effect waves-light pull-right" style="margin-top: -8px;">Add Customer</a>
                 </h4>
 
