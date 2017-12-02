@@ -27,7 +27,7 @@ class OrderController extends Controller
 
         try {
             $order = Order::where('customer_id', $request->customer_id)
-                ->where('job_id', $request->job_id)
+                ->where('job_id', $request->job_id)->orderBy('id', 'DESC')
                 ->paginate(3);
 
             return response()->json([
