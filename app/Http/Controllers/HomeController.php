@@ -31,8 +31,8 @@ class HomeController extends Controller
         $city = $request->city;
         
         if ($request->user()->role == 'admin') {
-            $jobChart = Order::getOrderJobThisMonth();
-            $statusChart = Order::getOrderStatusThisMonth();
+            $jobChart = Order::getOrderJob($month, $year, $city);
+            $statusChart = Order::getOrderStatus($month, $year, $city);
             return view('pages.admin.index', compact('jobChart', 'statusChart'));
         } else {
             $jobChart = Order::getOrderJobThisMonth($request->user()->city);
