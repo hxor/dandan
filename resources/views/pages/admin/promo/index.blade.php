@@ -9,7 +9,7 @@
             <a href="{{ url('/home') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-purple">
                                     <i class="icon-layers"></i>
@@ -30,17 +30,16 @@
             <a href="{{ route('admin.partner.index') }}">
                 <div class="card-box">
                     <div class="bar-widget">
-                        <div class="table-box">
+                        <div class="table-box waves-effect waves-light">
                             <div class="table-detail">
                                 <div class="iconbox bg-inverse">
                                     <i class="icon-layers"></i>
                                 </div>
                             </div>
 
-
                             <div class="table-detail">
                                 <h4 class="m-t-0 m-b-5"><b>Partnership</b></h4>
-                                <h5 class="text-muted m-b-0 m-t-0">List partnership</h5>
+                                <h5 class="text-muted m-b-0 m-t-0">Partnership</h5>
                             </div>
                         </div>
                     </div>

@@ -48,25 +48,25 @@
         </div>
 
         <div class="col-lg-3">
-				<a href="{{ route('admin.customer.notif') }}">
-					<div class="card-box">
-                        <div class="bar-widget">
-                            <div class="table-box waves-effect waves-light">
-                                <div class="table-detail">
-                                    <div class="iconbox bg-warning">
-                                        <i class="icon-layers"></i>
-                                    </div>
+            <a href="{{ route('admin.customer.notif') }}">
+                <div class="card-box">
+                    <div class="bar-widget">
+                        <div class="table-box waves-effect waves-light">
+                            <div class="table-detail">
+                                <div class="iconbox bg-warning">
+                                    <i class="icon-layers"></i>
                                 </div>
+                            </div>
 
-                                <div class="table-detail">
-                                    <h4 class="m-t-0 m-b-5"><b>Broadcast</b></h4>
-                                    <h5 class="text-muted m-b-0 m-t-0">Send Information</h5>
-                                </div>
+                            <div class="table-detail">
+                                <h4 class="m-t-0 m-b-5"><b>Broadcast</b></h4>
+                                <h5 class="text-muted m-b-0 m-t-0">Send Information</h5>
                             </div>
                         </div>
                     </div>
-				</a>
-			</div>
+                </div>
+            </a>
+        </div>
 
     </div>
     <!-- end row Menu-->

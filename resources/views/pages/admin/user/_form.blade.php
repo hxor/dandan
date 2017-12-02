@@ -33,6 +33,12 @@
     <small class="text-danger">{{ $errors->first('role') }}</small>
 </div>
 
+<div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+    {!! Form::label('city', 'Manager City') !!}
+    {!! Form::select('city', $city, null, ['class' => 'form-control', 'required' => 'required']) !!}
+    <small class="text-danger">{{ $errors->first('city') }}</small>
+</div>
+
 <div class="form-group{{ $errors->has('idcard') ? ' has-error' : '' }}">
     {!! Form::label('idcard', 'ID Card') !!}
     <div class="input-group">

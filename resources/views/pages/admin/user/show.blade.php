@@ -32,6 +32,10 @@
                                 <td>{{ $user->role }}</td>
                             </tr>
                             <tr>
+                                <th>Manager City</th>
+                                <td>{{ $user->city }}</td>
+                            </tr>
+                            <tr>
                                 <th>ID Card</th>
                                 <td><img class="rounded-square" width="300" height="150" src="{{ $user->idcard }}" alt=""></td>
                             </tr>

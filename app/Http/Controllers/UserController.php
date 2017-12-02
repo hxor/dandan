@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 use App\Models\User;
+use App\Models\City;
 
 class UserController extends Controller
 {
@@ -28,10 +29,11 @@ class UserController extends Controller
     {
         $role = [
             'manager' => 'Manager',
-            'supervisor' => 'Supervisor'
         ];
 
-        return view('pages.admin.user.create', compact('role'));
+        $city = City::pluck('city', 'city');
+
+        return view('pages.admin.user.create', compact('role', 'city'));
     }
 
     /**
@@ -47,7 +49,8 @@ class UserController extends Controller
             'username' => 'required|string|max:20|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
-            'role' => 'required'
+            'role' => 'required',
+            'city' => 'required'
         ]);
 
         // hash password
@@ -85,10 +88,10 @@ class UserController extends Controller
     {
         $role = [
             'manager' => 'Manager',
-            'supervisor' => 'Supervisor'
         ];
+        $city = City::pluck('city', 'city');
         $user = User::findOrFail($id);
-        return view('pages.admin.user.edit', compact('user', 'role'));
+        return view('pages.admin.user.edit', compact('user', 'role', 'city'));
     }
 
     /**
@@ -104,7 +107,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:20|unique:users,username,'.$id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$id,
-            'role' => 'required'
+            'role' => 'required', 
+            'city' => 'required'
         ]);
 
         $user = User::findOrFail($id);

@@ -19,11 +19,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $jobChart = Order::getOrderJobThisMonth();
-        $statusChart = Order::getOrderStatusThisMonth();
-        return view('pages.admin.order.index', compact('jobChart', 'statusChart'));
+        if ($request->user()->role == 'admin') {
+            $jobChart = Order::getOrderJobThisMonth();
+            $statusChart = Order::getOrderStatusThisMonth();
+            return view('pages.admin.order.index', compact('jobChart', 'statusChart'));
+        } else {
+            $jobChart = Order::getOrderJobThisMonth($request->user()->city);
+            $statusChart = Order::getOrderStatusThisMonth($request->user()->city);
+            return view('pages.admin.order.index', compact('jobChart', 'statusChart'));
+        }
     }
 
     /**
@@ -155,9 +161,9 @@ class OrderController extends Controller
         return redirect()->route('admin.order.index');
     }
 
-    public function getOrderData()
+    public function getOrderData(Request $request)
     {
-        $order = Order::all();
+        $order = Order::where('city', $request->user()->city)->get();
 
         return Datatables::of($order)
             ->addColumn('customer', function($order) {

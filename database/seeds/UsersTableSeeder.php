@@ -17,12 +17,14 @@ class UsersTableSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@mail.com',
                 'role' => 'admin',
+                'city' => null,
                 'password' => bcrypt('password')
             ],[
                 'name' => 'Manager',
                 'username' => 'manager',
                 'email' => 'manager@mail.com',
                 'role' => 'manager',
+                'city' => ucwords('Cirebon'),
                 'password' => bcrypt('password')
             ]
         ];

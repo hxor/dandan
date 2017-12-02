@@ -41,6 +41,8 @@ class CityController extends Controller
             'city' => 'required'
         ]);
 
+        $request['city'] = ucwords($request->city);
+
         City::create($request->all());
 
         notify()->flash('Done!', 'success', [
@@ -86,6 +88,8 @@ class CityController extends Controller
         $this->validate($request,[
             'city' => 'required',
         ]);
+
+        $request['city'] = ucwords($request->city);
 
         $city = City::findOrFail($id);
         $city->update($request->all());

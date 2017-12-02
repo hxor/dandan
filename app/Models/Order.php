@@ -30,29 +30,43 @@ class Order extends Model
         'date'
     ];
 
-    public static function getOrderJobThisMonth()
+    public static function getOrderJobThisMonth($city = null)
     {
         $data = [];
         $jobs = Job::all();
         foreach ($jobs as $job ){
-            $data[] = [
-                'name' => $job->job,
-                'total' => Order::where('job_id', $job->id)->whereMonth('created_at', '=', date('m'))->count()
-            ];
+            if ($city == null) {
+                $data[] = [
+                    'name' => $job->job,
+                    'total' => Order::where('job_id', $job->id)->whereMonth('created_at', '=', date('m'))->count()
+                ];
+            } else {
+                $data[] = [
+                    'name' => $job->job,
+                    'total' => Order::where('job_id', $job->id)->where('city', $city)->whereMonth('created_at', '=', date('m'))->count()
+                ];
+            }
         }
 
         return response()->json($data);
     }
 
-    public static function getOrderStatusThisMonth()
+    public static function getOrderStatusThisMonth($city = null)
     {
         $data = [];
         $statuses = Status::all();
         foreach ($statuses as $status ){
-            $data[] = [
-                'name' => $status->status,
-                'total' => Order::where('status_id', $status->id)->whereMonth('created_at', '=', date('m'))->count()
-            ];
+            if ($city == null) {
+                $data[] = [
+                    'name' => $status->status,
+                    'total' => Order::where('status_id', $status->id)->whereMonth('created_at', '=', date('m'))->count()
+                ];
+            } else {
+                $data[] = [
+                    'name' => $status->status,
+                    'total' => Order::where('status_id', $status->id)->where('city', $city)->whereMonth('created_at', '=', date('m'))->count()
+                ];
+            }
         }
 
         return response()->json($data);
