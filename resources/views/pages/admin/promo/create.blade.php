@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="card-box">
-                {!! Form::open(['method' => 'POST', 'route' => 'admin.promo.store', 'class' => 'form-horizontal']) !!}
+                {!! Form::open(['method' => 'POST', 'route' => 'admin.promo.store', 'class' => 'form-horizontal', 'novalidate']) !!}
                 @include('pages.admin.promo._form')
                 {!! Form::close() !!}
             </div>
