@@ -43,6 +43,7 @@
     <![endif]-->
     <link href="{{ url('/') }}/assets/css/style.css" rel="stylesheet" type="text/css" />
     <script src="{{ url('/') }}/assets/js/modernizr.min.js"></script>
+    <script src="{{ url('/') }}/assets/plugins/tinymce/tinymce.min.js"></script>
 
     @yield('styles')
 
@@ -219,6 +220,7 @@
 @yield('scripts')
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
 
 @if (notify()->ready())
     <script>
